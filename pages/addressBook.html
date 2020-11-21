@@ -6,7 +6,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/addressBook.css">
     <title>Address Book Form</title>
-    <script defer src="../js/addressBookForm.js"></script>
 </head>
 <body>
     <header class="header-content header">
@@ -21,6 +20,9 @@
     <div id="formId" class="form-content">
         <form class="form" action="#" onsubmit="save();return false" onreset="resetForm()">
             <div class="form-head">PERSON ADDRESS FORM</div>
+            <!--
+            <div><img class="cross-img" src="../assets/images/crossIcon.png"></div>
+            -->
             <div class="column-content">
                 <label class="label text" for="name">Full Name</label>
                 <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
@@ -29,12 +31,12 @@
             <div class="column-content">
                 <label class="label text" for="phone">Phone Number</label>
                 <input class="input" type="tel" id="phone" name="phone" placeholder="Your phone number.." required>
-                <error-output class="phone-error" for="phone"></error-output>
+                <error-output class="text-error" for="phone"></error-output>
             </div>
             <div class="column-content">
                 <label class="label text" for="address">Address</label>
                 <input class="input" id="address" name="address" placeholder="Address.." style="height:100px" required>
-                <error-output class="address-error" for="address"></error-output>
+                <error-output class="text-error" for="phone"></error-output>
             </div>
             <div class="column-content">
                 <div class="row-content">
