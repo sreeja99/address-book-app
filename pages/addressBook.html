@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/addressBook.css">
     <title>Address Book Form</title>
+    <script defer src="../js/addressBookForm.js"></script>
 </head>
 <body>
     <header class="header-content header">
@@ -31,12 +33,12 @@
             <div class="column-content">
                 <label class="label text" for="phone">Phone Number</label>
                 <input class="input" type="tel" id="phone" name="phone" placeholder="Your phone number.." required>
-                <error-output class="text-error" for="phone"></error-output>
+                <error-output class="phone-error" for="phone"></error-output>
             </div>
             <div class="column-content">
                 <label class="label text" for="address">Address</label>
                 <input class="input" id="address" name="address" placeholder="Address.." style="height:100px" required>
-                <error-output class="text-error" for="phone"></error-output>
+                <error-output class="address-error" for="address"></error-output>
             </div>
             <div class="column-content">
                 <div class="row-content">
@@ -100,7 +102,7 @@
             </div>
             <div class="buttonParent">
                 <div class="submit-reset">
-                    <button type="submit" class="button submitButton" id="submitButton">Add</button>
+                    <button type="submit" class="button submitButton" id="submitButton">Submit</button>
                     <button type="reset" class="button resetButton" id="resetButton">Reset</button>
                 </div>
             </div>
