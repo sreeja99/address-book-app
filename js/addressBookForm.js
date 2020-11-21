@@ -1,4 +1,4 @@
-let contactObj = new contact();
+let contactObj = new Contact();
 window.addEventListener("DOMContentLoaded",(event)=>{
     const name = document.querySelector('#name');
     const textError = document.querySelector(".text-error");   
