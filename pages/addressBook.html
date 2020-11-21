@@ -23,9 +23,9 @@
         <div id="formId" class="form-content">
             <form class="form" action="#" onsubmit="save();return false" onreset="resetForm()">
                 <div class="form-head">PERSON ADDRESS FORM</div>
-                <!--
-                <div><img class="cross-img" src="../assets/images/crossIcon.png"></div>
-                -->
+                <!---
+                <div><img class="cross-img" src="../assets/images/crossIcon.png" onclick="cancel()"></div>
+                --->
                 <div class="column-content">
                     <label class="label text" for="name">Full Name</label>
                     <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
@@ -109,5 +109,6 @@
                 </div>
             </form>
         </div>
+        <script src="../js/site_properties.js"></script>
     </body>
 </html>

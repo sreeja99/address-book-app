@@ -33,6 +33,14 @@ const save = ()=>{
     }
     alert(contactObj.toString());
 }
+const resetForm = ()=>{
+    document.querySelector("#name").value = "";
+    document.querySelector('#phone').value = "";
+    document.querySelector('#address').value= "";
+    document.querySelector('#city').value = "";
+    document.querySelector('#state').value= "";
+    document.querySelector('#zip').value= "";
+}
 const setContactObject = ()=>{
     try{
         contactObj._name = document.querySelector('#name').value;
@@ -54,4 +62,7 @@ const createAndUpdateStorage = ()=>{
     }
     alert(contactList.toString())
     localStorage.setItem("ContactList",JSON.stringify(contactList))
+}
+const cancel = ()=>{
+    window.location.replace(site_properties.home_page);
 }
