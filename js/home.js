@@ -1,15 +1,14 @@
 let contactDetailsList;
 window.addEventListener('DOMContentLoaded',(event)=>{
-    //contactDetailsList = createContactsJSON();
     contactDetailsList = getContactDetailsFromLocalStorage();
     document.querySelector(".contact-count").textContent = contactDetailsList.length;
     createInnerHtml();
+    localStorage.removeItem('editContact');
 });
   
 const createInnerHtml = () => {
     const headerHtml = "<th></th><th>Fullname</th><th>Address</th><th>City</th><th>State</th><th>Zip Code</th><th>Phone Number</th>";
     let innerHtml = `${headerHtml}`;
-    //let contactList = createContactsJSON();
     for(const contact of contactDetailsList){
     innerHtml = `${innerHtml}
     <tr><td></td>
@@ -65,3 +64,10 @@ const remove = (node)=>{
     document.querySelector('.contact-count').textContent = contactDetailsList.length;
     createInnerHtml();
 }
+const update = (node) => {
+    let contact = contactDetailsList.find(contactObj => contactObj._id == node.id);
+    if(!contact) 
+        return;
+    localStorage.setItem('editEmp',JSON.stringify(contact))
+    window.location.replace(site_properties.add_contact_page);
+  }
