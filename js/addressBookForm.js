@@ -43,6 +43,7 @@ const resetForm = ()=>{
 }
 const setContactObject = ()=>{
     try{
+        contactObj._id = new Date().getTime();
         contactObj._name = document.querySelector('#name').value;
         contactObj._phone = document.querySelector('#phone').value;
         contactObj._address = document.querySelector('#address').value;

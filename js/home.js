@@ -1,5 +1,6 @@
 let contactDetailsList;
 window.addEventListener('DOMContentLoaded',(event)=>{
+    //contactDetailsList = createContactsJSON();
     contactDetailsList = getContactDetailsFromLocalStorage();
     document.querySelector(".contact-count").textContent = contactDetailsList.length;
     createInnerHtml();
@@ -8,6 +9,7 @@ window.addEventListener('DOMContentLoaded',(event)=>{
 const createInnerHtml = () => {
     const headerHtml = "<th></th><th>Fullname</th><th>Address</th><th>City</th><th>State</th><th>Zip Code</th><th>Phone Number</th>";
     let innerHtml = `${headerHtml}`;
+    //let contactList = createContactsJSON();
     for(const contact of contactDetailsList){
     innerHtml = `${innerHtml}
     <tr><td></td>
@@ -18,9 +20,9 @@ const createInnerHtml = () => {
     <td>${contact._zip}</td>
     <td>${contact._phone}</td>
     <td>
-    <img id="1" onclick="remove(this)" alt="delete"
+    <img id="${contact._id}" onclick="remove(this)" alt="delete"
         src="../assets/icons/delete-black-18dp.svg">
-    <img id="1" alt="edit" onclick="update(this)" 
+    <img id="${contact._id}" onclick="update(this)" alt="edit"  
         src="../assets/icons/create-black-18dp.svg">
     </td>
     </tr>
@@ -45,11 +47,21 @@ const createContactsJSON = () => {
           _state: "Karanataka",
           _zip: "333030",
           _phone: "9873299502"
-      }
+        }
     ];
     return contactList;
 }
 const getContactDetailsFromLocalStorage = () => {
     return localStorage.getItem('ContactList')?
                                 JSON.parse(localStorage.getItem('ContactList')):[];
-  }
+}
+const remove = (node)=>{
+    let contact = contactDetailsList.find(contactobj=>contactobj._id==node.id);
+    if(!contact) 
+      return;
+    const index = contactDetailsList.map(contactobj=>contactobj._id).indexOf(contact._id);
+    contactDetailsList.splice(index,1);
+    localStorage.setItem('ContactList',JSON.stringify(contactDetailsList));
+    document.querySelector('.contact-count').textContent = contactDetailsList.length;
+    createInnerHtml();
+}
