@@ -60,18 +60,24 @@ const setContactObject = ()=>{
 const createAndUpdateStorage = ()=>{
     let contactList = JSON.parse(localStorage.getItem("ContactList"));
     if(contactList){
-        contactList.push(contactObj);
+        let contactData = contactList.find(contact=>contact._id ==contactObj._id);
+        if(!contactData){
+            contactList.push(contactObj);
+        } else {
+            const index = contactList.map(contact=>contact._id).indexOf(contactObj._id);
+            contactList.splice(index,1,contactObj);
+        }
     }else{
         contactList=[contactObj]
     }
-    alert(contactList.toString())
+    alert(contactObj.toString())
     localStorage.setItem("ContactList",JSON.stringify(contactList))
 }
 const cancel = ()=>{
     window.location.replace(site_properties.home_page);
 }
 const checkForUpdate = () =>{
-    const contactJSON = localStorage.getItem('editEmp');
+    const contactJSON = localStorage.getItem('editContact');
     isUpdate = contactJSON ? true :false;
     if(!isUpdate) return;
     contactObj = JSON.parse(contactJSON);
